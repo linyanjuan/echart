@@ -1,0 +1,118 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-negative
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+option = {
+  color:"rgb(90,122,242)",
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+
+  grid: {
+    left: '0%',
+    top:"8%",
+    right: '5%',
+    bottom: '0%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      show:false,
+      type: 'value'
+    }
+  ],
+  yAxis: [
+    {
+      
+      type: 'category',
+      axisTick: {
+        show: false
+      },
+    // axisLabel 用来修改y 轴刻度文字标签样式
+    axisLabel:{
+      color:"rgba(0,0,0,.8)",
+      fontSize:10
+    },
+    // axisLine 用来设置y 轴线条样式（y 轴有默认样式）
+    axisLine: {
+      show:true, // 表示显示y坐标轴
+      lineStyle: {
+        color:"rgba(0,0,0,.3)",
+        width:1
+        // type:"solid" 表示用实线
+      }
+    },
+      data:['积极主动','任务质量高', '按时完成作业', '注意力集中', '精神饱满']
+    }
+  ],
+  series: [
+    {
+      name: '得分',
+      type: 'bar',
+      barWidth:"65%",
+            itemStyle:{
+        //borderRadius 修改柱子圆角
+        borderRadius:4
+      },
+      label: {
+        show: true,
+        position: 'insideRight',
+        padding: [5, 5, 5, 5,5,5],
+        formatter: ' {@得分}',
+        color:"#fff"
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data:  [ 150,190, 249, 271, 330]
+    }
+  ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    
